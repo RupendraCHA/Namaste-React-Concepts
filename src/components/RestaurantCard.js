@@ -7,20 +7,22 @@ const ResCard = {
 
 
 const RestaurantCard = (props) => {
-  const {resData} = props
-
-  const {cloudinaryImageId,name,cuisines,avgRating,costForTwo,} = resData?.info
-  const {lastMileTravelString,deliveryTime} = resData.info?.sla
-  return (
-    <div className="res-card" style={ResCard}>
-      <img alt="ResLogo" className="res-logo" src={CDN_URL + cloudinaryImageId} />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(",")}</h4>
-      <h4>{avgRating} Stars</h4>
-      <h4>{costForTwo}</h4>
-      <h4>{lastMileTravelString}</h4>
-      <h4>{deliveryTime} minutes</h4>
+  const {infoArray} = props
+  
+  return (<>
+    {infoArray.map((foodInfo, idx) => (
+      <div className="res-card" style={ResCard} key={idx}>
+      <img alt="ResLogo" className="res-logo" src={CDN_URL + foodInfo.cloudinaryImageId} />
+      <h3>{foodInfo.name}</h3>
+      <h4>{foodInfo.cuisines.join(",")}</h4>
+      <h4>{foodInfo.avgRating} Stars</h4>
+      <h4>{foodInfo.costForTwo}</h4>
+      <h4>{foodInfo.sla.lastMileTravelString}</h4>
+      <h4>{foodInfo.sla.deliveryTime} minutes</h4>
     </div>
+    ))}
+  </>
+    
   )
 }
 

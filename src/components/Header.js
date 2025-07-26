@@ -1,6 +1,10 @@
+import React,{ useState } from "react"
 import { LOGO_URL } from "../utils/constants"
 
 const Header = () => {
+
+  const [btnNameReact, setBtnNameReact] = useState("Login")
+
   return (
     <div className="header">
       <div>
@@ -12,20 +16,18 @@ const Header = () => {
           <li className="listItem">About</li>
           <li className="listItem">Contact</li>
           <li className="listItem">Cart</li>
-          <li className="listItem">Login</li>
-          <li className="listItem">SignUp</li>
+          <button className="auth-btn" onClick={() => {
+            if (btnNameReact === "Login"){
+              setBtnNameReact("Logout")
+            }else{
+              setBtnNameReact("Login")
+            }
+          }}>{btnNameReact}</button>
         </ul>
       </div>
     </div>
   )
 }
 
-export const Footer = () => {
-    return (
-        <div>
-            <h1>Footer</h1>
-        </div>
-    )
-}
 
 export default Header

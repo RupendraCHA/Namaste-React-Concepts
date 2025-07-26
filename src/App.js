@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-import Header, { Footer } from "./components/Header"
+import Header from "./components/Header"
 import Body from "./components/Body"
 
 
@@ -69,7 +69,6 @@ import Body from "./components/Body"
           <div className="app">
             <Header />
             <Body/>
-            <Footer/>
           </div>
         )
       }
